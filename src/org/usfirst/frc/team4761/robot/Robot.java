@@ -1,6 +1,9 @@
 
 package org.usfirst.frc.team4761.robot;
 
+import org.usfirst.frc.team4761.robot.commands.Bounce;
+import org.usfirst.frc.team4761.robot.subsystems.DriveTrain;
+
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -20,6 +23,8 @@ public class Robot extends IterativeRobot {
 	public static OI oi;
 
     Command autonomousCommand;
+    Command bounceCommand;
+    public static DriveTrain driveTrain;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -27,6 +32,8 @@ public class Robot extends IterativeRobot {
      */
     public void robotInit() {
 		oi = new OI();
+		driveTrain = new DriveTrain();
+		bounceCommand = new Bounce(); 
         // instantiate the command used for the autonomous period
      
     }
@@ -53,6 +60,7 @@ public class Robot extends IterativeRobot {
         // continue until interrupted by another command, remove
         // this line or comment it out.
         if (autonomousCommand != null) autonomousCommand.cancel();
+        bounceCommand.start();
     }
 
     /**
