@@ -5,7 +5,7 @@ import org.usfirst.frc.team4761.robot.RobotMap;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
- *
+ * Class to represent the drive train.
  */
 public class DriveTrain extends Subsystem {
     
